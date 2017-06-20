@@ -6,11 +6,16 @@ head
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Document
 body
-    h1 query:
+    h1 params:
+        ul
+            each val in balalaika
+                li=val
+    h1 query: 
     ul
-        each val in query
-            li=val
-
+        each index, val in query
+            li
+                span #{val} 
+                span = #{index}
     h1 header:
     ul
         each val in headers

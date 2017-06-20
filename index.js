@@ -23,7 +23,6 @@ app.use('/', (req, res, next) => {
     var time = new Date();
     if(!req.cookies.time){
         res.cookie('time', time.toString());
-        next();
     }
     next();
 });

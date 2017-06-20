@@ -6,10 +6,14 @@ router.get('/', (req, res) => {
     const time = req.cookies.time;
     res.render('index', {time});
 });
+const a = { b: 1 };
+const { b: q } = a; // const q = a.b;
+const { b } = a; // const b = a.b;
 
 router.get('/myroute/:param', (req, res) => {
-    const { params: query, cookies, headers } = req;
-    res.render('param', {query, cookies, headers});
+    const { query, params:balalaika, cookies, headers } = req;
+    
+    res.render('param', {balalaika, query, cookies, headers});
     
 });
 
@@ -31,9 +35,8 @@ router.post('/form', (req, res) => {
         res.redirect('/result');
         return;
         }
-        else{
-            res.end('invalid');    
-        }
+        res.end('invalid');    
+        
     });
 });
 
