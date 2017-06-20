@@ -2,13 +2,15 @@ const express = require('express');
 const app = express();
 var cookieParser = require('cookie-parser');
 const router = require('./router');
-const api = require('./api')
+const api = require('./api');
 const bodyparser = require('body-parser');
+const expressValidator = require('express-validator');
 
 
 
 app.use(bodyparser.urlencoded({extended: true}));
 app.use(bodyparser.json());
+app.use(expressValidator());
 
 app.use(cookieParser());
 
