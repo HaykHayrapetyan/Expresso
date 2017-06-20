@@ -11,21 +11,18 @@ api.get('/time', (req, res) => {
 });
 
 api.post('/users', (req, res) => {
-    const { username, gender, agree, password } = req.query;
+    const { username, gender, agree, password } = req.body;
     useri.push({
-        "username": username,
-        "password": password,
-        "gender": gender,
-        "agree": agree,
+        username, gender, agree, password
     });
-    console.log(username);
-    res.end(req.query.username);
+    console.log(req.body);
+    //res.end(req.query.username);
+    res.send('ok')
     
 });
 
 api.get('/users', (req, res) => {
-    res.contentType('application/json');
-    res.send(JSON.stringify(useri));
+    res.json(useri);
 });
 
 
